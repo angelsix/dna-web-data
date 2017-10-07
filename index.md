@@ -7,8 +7,8 @@ layout: default
 <h1 id="download">Download</h1>
 
 <ul>
-<li><a href="/Releases/DnaWeb-1.0.0.0-Release-x86.msi">DnaWeb 1.0.0.0 (32bit)</a></li>
-<li><a href="/Releases/DnaWeb-1.0.0.0-Release-x64.msi">DnaWeb 1.0.0.0 (64bit)</a></li>
+<li><a href="Releases/DnaWeb-1.0.0.0-Release-x86.msi">DnaWeb 1.0.0.0 (32bit)</a></li>
+<li><a href="Releases/DnaWeb-1.0.0.0-Release-x64.msi">DnaWeb 1.0.0.0 (64bit)</a></li>
 </ul>
 
 <a href="https://github.com/angelsix/dna-web" class="button">View On GitHub</a>

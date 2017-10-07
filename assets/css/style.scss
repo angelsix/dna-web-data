@@ -1,0 +1,32 @@
+---
+---
+
+@import "{{ site.theme }}";
+@import "highlight.scss";
+
+.avatar
+{
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+}
+
+.pagination
+{
+    padding: 8px 15px;
+    background: #191919;
+    border-radius: 2px;
+    border: 1px solid #121212;
+    text-align: center;
+}
+
+.button
+{
+    padding: 20px;
+    margin: 20px 20px 20px 0px;
+    background: #5aa430;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 10px;
+}

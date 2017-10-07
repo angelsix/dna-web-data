@@ -1,0 +1,60 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: DnaWeb Engine
+email: contact@angelsix.com
+description: >- # this means to ignore newlines until "baseurl:"
+  A new format for creating smart HTML files that generate other HTML files. 
+  Including injecting headers/footers, generating Bridge.Net classes and more 
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://blog.angelsix.com/docs.dnaweb/" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: angelsixuk
+github_username:  angelsix
+repository: angelsix/docs.dnaweb
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-midnight
+# Add jekyll feed to generate atom feed at /feed.xml
+# Add jekyll-avatar for getting GitHub avatar
+# Add jekyll-seo-tag to auto add SEO tags into page using {% seo %}
+# Add jemoji to allow emoji's via shortnames anywhere in text, like :+1:
+plugins:
+  - jekyll-feed
+  - jekyll-avatar
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jemoji
+
+# Remove the .html from URLs and make them pretty
+permalink: pretty
+
+# Paginate blog posts into 2 per page
+paginate: 5
+
+# For when to stop outputting content of a blog as a short excerpt
+excerpt_separator: "<!--more-->"
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

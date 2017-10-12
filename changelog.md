@@ -1,6 +1,6 @@
 ## Change Log
 
-### Version 1.0.0.1
+### Version 1.0.1.0
 
 - Support for Sass Live processing
 - Lots of speed improvements

@@ -6,10 +6,10 @@ layout: default
 
 <h1 id="download">Download</h1>
 
-<ul>
-<li><a href="Releases/DnaWeb-1.0.0.0-Release-x86.msi">DnaWeb 1.0.0.0 (32bit)</a></li>
-<li><a href="Releases/DnaWeb-1.0.0.0-Release-x64.msi">DnaWeb 1.0.0.0 (64bit)</a></li>
-</ul>
+<a href="Releases/DnaWeb-1.0.1.0-Release-x86.msi">DnaWeb 1.0.1.0 (32bit)</a><br>
+<a href="Releases/DnaWeb-1.0.1.0-Release-x64.msi">DnaWeb 1.0.1.0 (64bit)</a><br>
+
+<br><a href="previous">Previous Versions</a><br>
 
 <a href="https://github.com/angelsix/dna-web" class="button">View On GitHub</a>
 <a href="#installing-dnaweb" class="button">Install Guide</a>
@@ -18,7 +18,7 @@ layout: default
 
 # DNA Web Engine
 
-When first building your website you don’t typically work directly in ASP.Net, or PHP or other final server languages. You build your website in plain static HTML, then once done you convert them to headers, footers, cshtml files etc...
+When first building your website you don’t typically work directly in ASP.Net, or PHP or other final server languages. You build your website in plain static HTML/CSS, then once done you convert them to headers, footers, cshtml files etc...
 
 ## The issue with static HTML
 
@@ -287,6 +287,12 @@ The comments for the properties will come from the comments specified in the var
 
 The variables will also be wrapped in a *#region* with the same name as the group.
 
+## Sass
+
+DnaWeb now has the ability to process Sass files (.scss) and generate .css files from them.
+
+Simply run DnaWeb in the directory of your choice and any .scss files will automatically produce css files as they are changed.
+
 ## Installing DnaWeb
 
 If you want to create your own Windows installer, download and install [Wix](http://wixtoolset.org/) and then right click on the **Dna.Web.Installer** project in Visual Studio to compile an msi file. The output of the compile will be in a folder inside **Dna.Web.Installer** called **Installs**
@@ -345,7 +351,9 @@ An example dna.config file is below:
 {
   "monitor": ".",
   "generateOnStart": "All",
-  "processAndClose": "False"
+  "processAndClose": "False",
+  "logLevel": "Minimal",
+  "sassPath": ""
 }
 ```
 
@@ -354,17 +362,23 @@ An example dna.config file is below:
 | monitor         | A relative or absolute path to monitor, based on the folder where DnaWeb was called from |
 | generateOnStart | `None, All`. Specifies whether to generate all DnaWeb file types on startup without the need for them to be changed first |
 | processAndClose | `False, True`. Whether DnaWeb closes right after opening and optionally generating all files. Typically used in combination with **generateOnStart** being set to `All`. |
+| logLevel        | `None, Minimal, Informative, All` The amount of detail to output in the log |
+| sassPath        | Sets the output path for all Sass files, relative to this configuration files location |
 
 These values can also be overridden when calling DnaWeb from command line by passing in command line arguments:
 
-| Argument | Description                              |
-| -------- | ---------------------------------------- |
-| monitor= | Overrides any monitor path specified in dna.config files |
-| /a       | Overrides any generate on start options specified in dna.config files and sets it to `All` |
-| /c       | Overrides any process and close options specified in dna.config files and sets it to `True` |
+| Argument  | Description                              |
+| --------- | ---------------------------------------- |
+| monitor=  | Overrides any monitor path specified in dna.config files |
+| logLevel= | Overrides the log level                  |
+| sassPath= | Overrides the Sass Path                  |
+| /a        | Overrides any generate on start options specified in dna.config files and sets it to `All` |
+| /c        | Overrides any process and close options specified in dna.config files and sets it to `True` |
+
+> You can also place a **dna.config** file in any sub-folder to override settings for files specific to that folder (but not the sub or parent folders only the specific folder where the configuration file is located). In future I may update this to support the full reverse tree so that settings persist into child folders.
 
 The Visual Studio project has a debug argument set to monitor=../../Examples so that when debugging it monitors the Examples folder of the solution.
 
 Now with the engine running, edit any file in the Examples folder and the console will detect the change and automatically process the files and generate the outputs. All details are output to the console window.
 
-The typical work-cycle when using DNA Web Engine is to start the engine up prior to working, then work with your DnaWeb files as required, meaning any edits to those files will auto-generate your HTML/C# files instantly.
+The typical work-cycle when using DNA Web Engine is to start the engine up prior to working, then work with your DnaWeb files as required, meaning any edits to those files will auto-generate your HTML/C#/Sass files instantly.

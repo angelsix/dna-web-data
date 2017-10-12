@@ -1,0 +1,7 @@
+<h1 id="download">Previous Versions</h1>
+
+<ul>
+<li><a href="Releases/DnaWeb-1.0.0.0-Release-x86.msi">DnaWeb 1.0.0.0 (32bit)</a></li>
+<li><a href="Releases/DnaWeb-1.0.0.0-Release-x64.msi">DnaWeb 1.0.0.0 (64bit)</a></li>
+</ul>
+

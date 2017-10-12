@@ -11,7 +11,7 @@ layout: default
 
 <br><a href="previous">Previous Versions</a><br>
 
-<a href="https://github.com/angelsix/dna-web" class="button">View On GitHub</a>
+<a href="https://github.com/angelsix/dna-web" class="button" target="_blank">View On GitHub</a>
 <a href="#installing-dnaweb" class="button">Install Guide</a>
 
 </div>
@@ -381,4 +381,4 @@ The Visual Studio project has a debug argument set to monitor=../../Examples so 
 
 Now with the engine running, edit any file in the Examples folder and the console will detect the change and automatically process the files and generate the outputs. All details are output to the console window.
 
-The typical work-cycle when using DNA Web Engine is to start the engine up prior to working, then work with your DnaWeb files as required, meaning any edits to those files will auto-generate your HTML/C#/Sass files instantly.
+The typical work-cycle when using DNA Web Engine is to start the engine up prior to working, then work with your DnaWeb files as required, meaning any edits to those files will auto-generate your HTML/C#/Sass files instantly.v

@@ -307,9 +307,9 @@ This installed path will also be added to your systems **PATH** variable. This m
 
 Let's say you have a folder now containing your website, its assets, images, css, html, dnaweb files and so on. At the start of your work day, you would just navigate to that folder in Explorer, then in the address bar type `dnaweb` to open and run a DnaWeb engine in that folder.
 
-![addressbar](images/addressbar.png)
+![addressbar](./images/addressbar.png)
 
-![dnaweb](images/dnaweb.png)
+![dnaweb](./images/dnaweb.png)
 
 This simply finds the self-contained **DnaWeb.exe** file located in the **Program Files** installation folder, then runs DnaWeb.
 

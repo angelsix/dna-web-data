@@ -28,9 +28,9 @@ Changing the header of one page, you need to change the header of all other page
 
 ## Enter, DNA Web Engine
 
-Using the DNA Web Engine allows you to write completely standard HTML code, and just insert HTML comments to do extra useful things. For example, let’s create a shared header and footer as normal HTML, simply with an extension of .dnaweb instead of .html
+Using the DNA Web Engine allows you to write completely standard HTML code, and just insert HTML comments to do extra useful things. For example, let’s create a shared header and footer as normal HTML, simply with an extension of dhtml instead of .html
 
-**header.dnaweb**
+**header.dhtml**
 
 ```
 <html>
@@ -40,7 +40,7 @@ Using the DNA Web Engine allows you to write completely standard HTML code, and 
   <body>
 ```
 
-**footer.dnaweb**
+**footer.dhtml**
 
 ```
   </body>
@@ -50,31 +50,31 @@ Using the DNA Web Engine allows you to write completely standard HTML code, and 
 Now we can create all our pages in regular HTML format, but with comments to insert the header and footer.
 
 ```
-<!--@ include header.dnaweb @-->
+<!--@ include header.dhtml @-->
   <h1>Header</h1>
-<!--@ include footer.dnaweb @-->
+<!--@ include footer.dhtml @-->
 ```
 
 **Outputs**
-By default if your file is called *index.dnaweb* then the output file will be in the same directory called *index.html.*
+By default if your file is called *index.dhtml* then the output file will be in the same directory called *index.html.*
 
 To modify the output filename and path (relative to the input file), in your dnaweb file specify the new name in the output tag. You can specify more than one output to generate multiple files with different names in different locations.
 
 ```
 <!--@ output home.html @-->
 <!--@ output extra.html @-->
-<!--@ include header.dnaweb @-->
+<!--@ include header.dhtml @-->
   <h1>Header</h1>
-<!--@ include footer.dnaweb @-->
+<!--@ include footer.dhtml @-->
 ```
 
 ## Partials
 
 Some files like headers and footers should not generate files themselves, they are simply partial files to be included.
 
-To prevent DNA from generating output for a file, add the partial tag to it, like so:
+To prevent DNA from generating output for a file, you can either start the filename with an underscore such as **_header.dhtml** or add the partial tag to it, like so:
 
-**header.dnaweb**
+**header.dhtml**
 
 ```
 <!--@ partial @-->
@@ -116,11 +116,11 @@ To then use them inside your HTML, use the given name you created, wrapped insid
 
 As well as defining variables yourself, DnaWeb has a bunch of in-built useful variables, you use in just the same way with the prefix `dna.`
 
-| Dna Variable                    | Output                     | Description                              |
-| ------------------------------- | -------------------------- | ---------------------------------------- |
-| `$$dna.Date("MMMM dd, yyyy")$$` | October 10, 2017           | The current date/time in the specified string format |
-| `$$dna.ProjectPath$$`           | D:\Some\Folder             | The current directory where the main project is (where DnaWeb has been run from) |
-| `$$dna.FilePath$$`              | D:\Some\Folder\file.dnaweb | The full path of the current file this variable resides within |
+| Dna Variable                    | Output                    | Description                              |
+| ------------------------------- | ------------------------- | ---------------------------------------- |
+| `$$dna.Date("MMMM dd, yyyy")$$` | October 10, 2017          | The current date/time in the specified string format |
+| `$$dna.ProjectPath$$`           | D:\Some\Folder            | The current directory where the main project is (where DnaWeb has been run from) |
+| `$$dna.FilePath$$`              | D:\Some\Folder\file.dhtml | The full path of the current file this variable resides within |
 
 If you have any requests for more variables, simply ask for them in the [GitHub Repo](https://github.com/angelsix/dna-web)
 
@@ -168,9 +168,9 @@ Here is an example that generates a full static HTML page called index.html and 
 ```
 <!--@ output index.html:wrapped @-->
 <!--@ output index.cshtml @--> 
-<!--@ include header.dnaweb:wrapped @-->
+<!--@ include header.dhtml:wrapped @-->
   <h1>Header</h1>
-<!--@ include footer.dnaweb:wrapped @-->`
+<!--@ include footer.dhtml:wrapped @-->`
 ```
 
 As you can see by specifying a profile named "wrapped" then setting the index.html output to use that profile, and the includes for the header and footer to only include the files for the profile "wrapped" we end up with just the header <h1> in the .cshtml file but the complete file for the .html file.
@@ -222,7 +222,7 @@ Instead, using the C# engine you can specify the ID as a variable and use it to 
 
 Place your variable in a partial file:
 
-**variables.dnaweb**
+**variables.dhtml**
 
 ```
 <!--@ partial @-->
@@ -252,10 +252,10 @@ Notice the use of a new element called a *Group*. A group simply groups a bunch 
 
 Now let’s use those variables in a dnaweb file to create a cshtml file as normal:
 
-**index.dnaweb**
+**index.dhtml**
 
 ```
-<!--@ include varibles.dnaweb @-->
+<!--@ include varibles.dhtml @-->
 <h1>My Id 1 is: $$SomeId1$$</h1>
 <h1>My Id 2 is: $$SomeId2$$</h1> 
 <h1>My string is: $$MyString$$</h1>
@@ -305,11 +305,9 @@ This installed path will also be added to your systems **PATH** variable. This m
 
 ## Running DnaWeb on a Project/Folder
 
-Let's say you have a folder now containing your website, its assets, images, css, html, dnaweb files and so on. At the start of your work day, you would just navigate to that folder in Explorer, then in the address bar type `cmd` to open a command prompt in that folder.
+Let's say you have a folder now containing your website, its assets, images, css, html, dnaweb files and so on. At the start of your work day, you would just navigate to that folder in Explorer, then in the address bar type `dnaweb` to open and run a DnaWeb engine in that folder.
 
-![cmd-addressbar](images/cmd-addressbar.png)
-
-Now simply type `dnaweb` to run the DnaWeb engine for that project.
+![addressbar](images/addressbar.png)
 
 ![dnaweb](images/dnaweb.png)
 
@@ -381,4 +379,4 @@ The Visual Studio project has a debug argument set to monitor=../../Examples so 
 
 Now with the engine running, edit any file in the Examples folder and the console will detect the change and automatically process the files and generate the outputs. All details are output to the console window.
 
-The typical work-cycle when using DNA Web Engine is to start the engine up prior to working, then work with your DnaWeb files as required, meaning any edits to those files will auto-generate your HTML/C#/Sass files instantly.
+The typical work-cycle when using DNA Web Engine is to start the engine up prior to working, then work with your DnaWeb files as required, meaning any edits to those files will auto-generate your HTML/C#/Sass files instantly..

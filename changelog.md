@@ -1,5 +1,10 @@
 ## Change Log
 
+### Version 1.0.1.3
+
+- Changed Html engine extension to .dhtml
+- Auto-set files starting with _ to partial files to match Sass behaviour
+
 ### Version 1.0.1.2
 
 - Fixed bug in regex detecting Sass import paths

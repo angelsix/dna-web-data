@@ -6,8 +6,8 @@ layout: default
 
 <h1 id="download">Download</h1>
 
-<a href="Releases/DnaWeb-1.0.1.3-Release-x86.msi">DnaWeb 1.0.1.3 (32bit)</a><br>
-<a href="Releases/DnaWeb-1.0.1.3-Release-x64.msi">DnaWeb 1.0.1.3 (64bit)</a><br>
+<a href="Releases/DnaWeb-1.0.1.4-Release-x86.msi">DnaWeb 1.0.1.4 (32bit)</a><br>
+<a href="Releases/DnaWeb-1.0.1.4-Release-x64.msi">DnaWeb 1.0.1.4 (64bit)</a><br>
 
 <br><a href="previous">Previous Versions</a><br>
 
@@ -50,22 +50,22 @@ Using the DNA Web Engine allows you to write completely standard HTML code, and 
 Now we can create all our pages in regular HTML format, but with comments to insert the header and footer.
 
 ```
-<!--@ include header.dhtml @-->
+<!--@ include header @-->
   <h1>Header</h1>
-<!--@ include footer.dhtml @-->
+<!--@ include footer @-->
 ```
 
 **Outputs**
-By default if your file is called *index.dhtml* then the output file will be in the same directory called *index.html.*
+By default if your file is called *index.dhtml* then the output file will be in the same directory called *index.html.* ([unless a Html Output Path is specified in a configuration file](#configuring-dnaweb))
 
 To modify the output filename and path (relative to the input file), in your dnaweb file specify the new name in the output tag. You can specify more than one output to generate multiple files with different names in different locations.
 
 ```
-<!--@ output home.html @-->
-<!--@ output extra.html @-->
-<!--@ include header.dhtml @-->
+<!--@ output home @-->
+<!--@ output extra @-->
+<!--@ include header @-->
   <h1>Header</h1>
-<!--@ include footer.dhtml @-->
+<!--@ include footer @-->
 ```
 
 ## Partials
@@ -131,9 +131,9 @@ Sometimes you need multiple outputs of a single file. For example the static HTM
 Here is an example of generating three files from the same file, each with their own header text:
 
 ```
-<!--@ output index-release.htm @-->
-<!--@ output index-uat.htm:uat @-->
-<!--@ output index-debug.htm:debug @-->
+<!--@ output index-release @-->
+<!--@ output index-uat:uat @-->
+<!--@ output index-debug:debug @-->
 <!--$ 
   <Data>
     <Variable Name="Title">My title</Variable>
@@ -166,11 +166,11 @@ As with output profiles, you can use the same profile technique to only include 
 Here is an example that generates a full static HTML page called index.html and an ASP.Net index.cshtml page that doesn’t include the header or footer.
 
 ```
-<!--@ output index.html:wrapped @-->
+<!--@ output index:wrapped @-->
 <!--@ output index.cshtml @--> 
-<!--@ include header.dhtml:wrapped @-->
+<!--@ include header:wrapped @-->
   <h1>Header</h1>
-<!--@ include footer.dhtml:wrapped @-->`
+<!--@ include footer:wrapped @-->`
 ```
 
 As you can see by specifying a profile named "wrapped" then setting the index.html output to use that profile, and the includes for the header and footer to only include the files for the profile "wrapped" we end up with just the header <h1> in the .cshtml file but the complete file for the .html file.
@@ -182,8 +182,8 @@ Sometimes you want to include some small and simple HTML into your file inline, 
 You can inline data that will get inserted for all outputs, for outputs that do not specify a profile, and for specific profiles.
 
 ```
-<!--@ output server.html:server @-->
-<!--@ output local.html @-->
+<!--@ output server:server @-->
+<!--@ output local @-->
   <h1>Header</h1>
 <!--@ inline <h1>This is in all outputs</h1> @-->
 <!--@ inline:! <h1>This is in default outputs only</h1> @-->
@@ -255,7 +255,7 @@ Now let’s use those variables in a dnaweb file to create a cshtml file as norm
 **index.dhtml**
 
 ```
-<!--@ include varibles.dhtml @-->
+<!--@ include variables @-->
 <h1>My Id 1 is: $$SomeId1$$</h1>
 <h1>My Id 2 is: $$SomeId2$$</h1> 
 <h1>My string is: $$MyString$$</h1>
@@ -266,7 +266,7 @@ Then let’s generate a C# file that can be included in our ASP.Net project to g
 **codefile.cs**
 
 ```
-<!--@ output variables.cs @--> 
+<!--@ output variables @--> 
 namespace SomeNamespace 
 {
   /// <summary> 
@@ -351,7 +351,7 @@ An example dna.config file is below:
   "generateOnStart": "All",
   "processAndClose": "False",
   "logLevel": "Minimal",
-  "sassPath": ""
+  "outputPath": ""
 }
 ```
 
@@ -361,19 +361,19 @@ An example dna.config file is below:
 | generateOnStart | `None, All`. Specifies whether to generate all DnaWeb file types on startup without the need for them to be changed first |
 | processAndClose | `False, True`. Whether DnaWeb closes right after opening and optionally generating all files. Typically used in combination with **generateOnStart** being set to `All`. |
 | logLevel        | `None, Minimal, Informative, All` The amount of detail to output in the log |
-| sassPath        | Sets the output path for all Sass files, relative to this configuration files location |
+| outputPath      | Sets the output path for all files, relative to this configuration files location |
 
 These values can also be overridden when calling DnaWeb from command line by passing in command line arguments:
 
-| Argument  | Description                              |
-| --------- | ---------------------------------------- |
-| monitor=  | Overrides any monitor path specified in dna.config files |
-| logLevel= | Overrides the log level                  |
-| sassPath= | Overrides the Sass Path                  |
-| /a        | Overrides any generate on start options specified in dna.config files and sets it to `All` |
-| /c        | Overrides any process and close options specified in dna.config files and sets it to `True` |
+| Argument    | Description                              |
+| ----------- | ---------------------------------------- |
+| monitor=    | Overrides any monitor path specified in dna.config files |
+| logLevel=   | Overrides the log level                  |
+| outputPath= | Overrides the Output Path                |
+| /a          | Overrides any generate on start options specified in dna.config files and sets it to `All` |
+| /c          | Overrides any process and close options specified in dna.config files and sets it to `True` |
 
-> You can also place a **dna.config** file in any sub-folder to override settings for files specific to that folder (but not the sub or parent folders only the specific folder where the configuration file is located). In future I may update this to support the full reverse tree so that settings persist into child folders.
+> You can also place a **dna.config** file in any sub-folder inside the monitor path to apply settings to that specific folder and it's children. Configuration files in child folders override any settings specified in a parent folders configuration file.
 
 The Visual Studio project has a debug argument set to monitor=../../Examples so that when debugging it monitors the Examples folder of the solution.
 

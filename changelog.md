@@ -1,5 +1,13 @@
 ## Change Log
 
+### Version 1.0.1.4
+
+- Added outputPath configuration setting to set default output path of all files, not just sass files
+- Removed sassPath (replaced with outputPath)
+- Added support for placing configuration files in any folder between the file and the root monitor path for tiered configurations
+- Removed the need to specify include extensions if engine only monitors for one file type (i.e. including .dhtml files no longer needs the .dhtml in the include name)
+- Removed the need to specify output extensions. If no extension is provided, the output extension because the engines default type (for example .html for the Html Engine)
+
 ### Version 1.0.1.3
 
 - Changed Html engine extension to .dhtml

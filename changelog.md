@@ -1,5 +1,11 @@
 ## Change Log
 
+### Version 1.0.1.5
+
+- Added LiveServer support so basic websites can be served
+- Added Auto-Refresh support to LiveServers
+- Fixed html include statement not finding partial files starting with _
+
 ### Version 1.0.1.4
 
 - Added outputPath configuration setting to set default output path of all files, not just sass files

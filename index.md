@@ -6,8 +6,8 @@ layout: default
 
 <h1 id="download">Download</h1>
 
-<a href="Releases/DnaWeb-1.0.1.4-Release-x86.msi">DnaWeb 1.0.1.4 (32bit)</a><br>
-<a href="Releases/DnaWeb-1.0.1.4-Release-x64.msi">DnaWeb 1.0.1.4 (64bit)</a><br>
+<a href="Releases/DnaWeb-1.0.1.5-Release-x86.msi">DnaWeb 1.0.1.5 (32bit)</a><br>
+<a href="Releases/DnaWeb-1.0.1.5-Release-x64.msi">DnaWeb 1.0.1.5 (64bit)</a><br>
 
 <br><a href="previous">Previous Versions</a><br>
 
@@ -293,6 +293,37 @@ DnaWeb now has the ability to process Sass files (.scss) and generate .css files
 
 Simply run DnaWeb in the directory of your choice and any .scss files will automatically produce css files as they are changed.
 
+## Live Server
+
+Another common tool used in the static web development lifecycle is a way to serve the static html files in a web server so you can do http://localhost:5000/about for example to serve an about page, typically called **about.html**
+
+Now with DNA Live Servers you can.
+
+Also the ability to watch live in a browser for file changes and refresh the page automatically is very beneficial. This feature is also included in Live Server.
+
+To have DnaWeb spin up a server for you automatically on a free port on your local machine, and start serving the html and other content files in a specific folder, just specify an array of paths in any **dna.config** file. The paths are relative to the **dna.config** file location.
+
+For example, the **Examples** folder in this repository has a folder called **09 - LiveServer** and inside it the DnaWeb source files are there. The **dna.config** file specfies that the output (html) files go to `../Outputs/09` folder, and so we also set up a Live Server to that folder too.
+
+```
+{
+    "outputPath": "../Outputs/09",
+    "liveServers": [ "../Outputs/09" ]
+}
+```
+
+Now just start DnaWeb in your source folder and a Live Server will be created and your browser automatically opened to the new server address, along with the **index.html** file in the **Outputs/09** folder being served by default.
+
+<img src="images/liveserver.png" />
+
+If you then typed in http://localhost:51767/about for example it would attempt to find and load a html file in **Outputs/09** called **about.htm** (or .html). 
+
+Any other requests such as http://localhost:51767/Assets/Css/style.css will then look for **Outputs/09/Assets/Css/style.css** and serve that.
+
+Mime types will be honoured, and the server will server the files length, date, modified date and so on.
+
+Go ahead and edit a .dhtml file, a .scss file or even a file directly in the output folder if you like, and watch the website automatically refresh.
+
 ## Installing DnaWeb
 
 If you want to create your own Windows installer, download and install [Wix](http://wixtoolset.org/) and then right click on the **Dna.Web.Installer** project in Visual Studio to compile an msi file. The output of the compile will be in a folder inside **Dna.Web.Installer** called **Installs**
@@ -362,6 +393,7 @@ An example dna.config file is below:
 | processAndClose | `False, True`. Whether DnaWeb closes right after opening and optionally generating all files. Typically used in combination with **generateOnStart** being set to `All`. |
 | logLevel        | `None, Minimal, Informative, All` The amount of detail to output in the log |
 | outputPath      | Sets the output path for all files, relative to this configuration files location |
+| liveServers     | An array of strings that specify paths (relative to the configuration file) that should have a Live Server spun up for them. |
 
 These values can also be overridden when calling DnaWeb from command line by passing in command line arguments:
 

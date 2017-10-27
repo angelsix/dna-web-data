@@ -6,8 +6,8 @@ layout: default
 
 <h1 id="download">Download</h1>
 
-<a href="Releases/DnaWeb-1.0.1.5-Release-x86.msi">DnaWeb 1.0.1.5 (32bit)</a><br>
-<a href="Releases/DnaWeb-1.0.1.5-Release-x64.msi">DnaWeb 1.0.1.5 (64bit)</a><br>
+<a href="Releases/DnaWeb-1.0.1.6-Release-x86.msi">DnaWeb 1.0.1.6 (32bit)</a><br>
+<a href="Releases/DnaWeb-1.0.1.6-Release-x64.msi">DnaWeb 1.0.1.6 (64bit)</a><br>
 
 <br><a href="previous">Previous Versions</a><br>
 
@@ -324,6 +324,56 @@ Mime types will be honoured, and the server will server the files length, date, 
 
 Go ahead and edit a .dhtml file, a .scss file or even a file directly in the output folder if you like, and watch the website automatically refresh.
 
+## Live Data Sources
+
+A **Live Data Source** for DnaWeb provides the ability to include and instantly make use of snippets and variables live while working on your web project. This can be very useful for rapid workflow.
+
+The source folder contains a **readme.md** file explaining the Live Data source, what who made it, what's inside and general information.
+
+### Live Variables
+
+Anywhere inside any file of a DnaWeb engine (such as a **.dhtml** file), you can type the following:
+
+`$$!dna.variablename$$` 
+
+Save the file and if your editor (such as [VS Code](https://code.visualstudio.com/)) supports live updating of the file you will instantly see what you typed gets replaced with the actual contents of the Live Variable named `variablename` inside the Live Data Source with a prefix of `dna`. 
+
+> *NOTE:* There is no need to provide the official default prefix of `dna`. If no prefix is provided then `dna` is presumed. This means `$$!dna.variablename$$` would simply become `$$!variablename`
+
+For example the official Live Data Source has a variable named `html` that injects the most up-to-date official blank HTML document structure. Typing `$$!html$$` into a **.dhtml** file and saving it will update that file replacing the `$$!html$$` text with:
+
+```
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+    </head>
+    <body>
+    </body>
+</html>
+```
+
+### Live Templates
+
+As well as small variables/snippets it is also useful when developing a website to start from an entire template, such as a full responsive website blank template.
+
+Live Templates allow you to extract an entire template to the current project folder with a simple command:
+
+`new template name`
+
+Where `name` is the Live Template's `prefix.name`, for example `dna.blank` for the Blank template from the DnaWeb official Live Data Source.
+
+> *NOTE:* Again as with variables, not specifying a prefix will presume `dna` as the prefix
+
+For example the following being typed into the DnaWeb command interface will instantly extract the `fabric` template into the current folder:
+
+`new template fabric`
+
+### Making your own Live Data Source
+
+To make your own take a look at our example [on GitHub](https://github.com/angelsix/dna-web/tree/master/Source/Dna.Web.Core/LiveData/Source)
+
 ## Installing DnaWeb
 
 If you want to create your own Windows installer, download and install [Wix](http://wixtoolset.org/) and then right click on the **Dna.Web.Installer** project in Visual Studio to compile an msi file. The output of the compile will be in a folder inside **Dna.Web.Installer** called **Installs**
@@ -382,7 +432,15 @@ An example dna.config file is below:
   "generateOnStart": "All",
   "processAndClose": "False",
   "logLevel": "Minimal",
-  "outputPath": ""
+  "outputPath": "../WebRoot",
+  "liveServers": [ "../WebRoot" ],
+  "liveDataSources": [
+  {
+    "prefix": "dna",
+    "source": "https://raw.githubusercontent.com/angelsix/dna-web/develop/Source/Dna.Web.Core/LiveData/dna.live.config"
+  }
+  ],
+  "cachePath": "%LOCALAPPDATA%\\DnaWeb\\%VERSION%\\Cache\\"
 }
 ```
 
@@ -390,10 +448,12 @@ An example dna.config file is below:
 | --------------- | ---------------------------------------- |
 | monitor         | A relative or absolute path to monitor, based on the folder where DnaWeb was called from |
 | generateOnStart | `None, All`. Specifies whether to generate all DnaWeb file types on startup without the need for them to be changed first |
-| processAndClose | `False, True`. Whether DnaWeb closes right after opening and optionally generating all files. Typically used in combination with **generateOnStart** being set to `All`. |
+| processAndClose | `False, True`. Whether DnaWeb closes right after opening and optionally generating all files. Typically used in combination with **generateOnStart** being set to `All` |
 | logLevel        | `None, Minimal, Informative, All` The amount of detail to output in the log |
 | outputPath      | Sets the output path for all files, relative to this configuration files location |
-| liveServers     | An array of strings that specify paths (relative to the configuration file) that should have a Live Server spun up for them. |
+| liveServers     | An array of strings that specify paths (relative to the configuration file) that should have a Live Server spun up for them |
+| liveDataSources | An array of Live Data Sources            |
+| cachePath       | The relative or absolute path where any DnaWeb cache data goes (the default is the Local App Data folder of the machine) |
 
 These values can also be overridden when calling DnaWeb from command line by passing in command line arguments:
 
@@ -404,6 +464,7 @@ These values can also be overridden when calling DnaWeb from command line by pas
 | outputPath= | Overrides the Output Path                |
 | /a          | Overrides any generate on start options specified in dna.config files and sets it to `All` |
 | /c          | Overrides any process and close options specified in dna.config files and sets it to `True` |
+| cachePath   | Overrides any cache path setting specified in dna.config files |
 
 > You can also place a **dna.config** file in any sub-folder inside the monitor path to apply settings to that specific folder and it's children. Configuration files in child folders override any settings specified in a parent folders configuration file.
 

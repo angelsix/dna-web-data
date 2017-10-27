@@ -1,5 +1,11 @@
 ## Change Log
 
+### Version 1.0.1.6
+
+- Add Live Data Sources support for Live Variables and Live Templates
+- Add Cache Path setting
+- Add lots of commands into console
+
 ### Version 1.0.1.5
 
 - Added LiveServer support so basic websites can be served

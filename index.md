@@ -122,7 +122,7 @@ As well as defining variables yourself, DnaWeb has a bunch of in-built useful va
 | `$$dna.ProjectPath$$`           | D:\Some\Folder            | The current directory where the main project is (where DnaWeb has been run from) |
 | `$$dna.FilePath$$`              | D:\Some\Folder\file.dhtml | The full path of the current file this variable resides within |
 
-If you have any requests for more variables, simply ask for them in the [GitHub Repo](https://github.com/angelsix/dna-web)
+If you have any requests for more variables, simply ask for them in the <a href="https://github.com/angelsix/dna-web" target="_blank">GitHub Repo</a>
 
 ## Output Profiles
 
@@ -336,7 +336,7 @@ Anywhere inside any file of a DnaWeb engine (such as a **.dhtml** file), you can
 
 `$$!dna.variablename$$` 
 
-Save the file and if your editor (such as [VS Code](https://code.visualstudio.com/)) supports live updating of the file you will instantly see what you typed gets replaced with the actual contents of the Live Variable named `variablename` inside the Live Data Source with a prefix of `dna`. 
+Save the file and if your editor (such as <a href="https://code.visualstudio.com" target="_blank">VS Code</a>) supports live updating of the file you will instantly see what you typed gets replaced with the actual contents of the Live Variable named `variablename` inside the Live Data Source with a prefix of `dna`. 
 
 > *NOTE:* There is no need to provide the official default prefix of `dna`. If no prefix is provided then `dna` is presumed. This means `$$!dna.variablename$$` would simply become `$$!variablename$$`
 
@@ -372,7 +372,7 @@ For example the following being typed into the DnaWeb command interface will ins
 
 ### Making your own Live Data Source
 
-To make your own take a look at our example [on GitHub](https://github.com/angelsix/dna-web/tree/master/Source/Dna.Web.Core/LiveData/Source)
+To make your own take a look at our example <a href="https://github.com/angelsix/dna-web/tree/master/Source/Dna.Web.Core/LiveData/Source" target="_blank">on GitHub</a>
 
 ## Installing DnaWeb
 

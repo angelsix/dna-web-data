@@ -3,6 +3,7 @@
 ### Version 1.0.3
 
 - Process and Close won't spin up Live Servers
+- Fix Live Server Auto-Refresh not always working
 
 ### Version 1.0.2
 

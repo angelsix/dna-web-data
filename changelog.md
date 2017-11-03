@@ -1,6 +1,10 @@
 ## Change Log
 
-### Version 1.0.2.0
+### Version 1.0.3
+
+- Process and Close won't spin up Live Servers
+
+### Version 1.0.2
 
 - Live editing of dna.config file support without restarting DnaWeb
 - Allow . in Live Variable/Template names

@@ -1,5 +1,12 @@
 ## Change Log
 
+### Version 1.0.2.0
+
+- Live editing of dna.config file support without restarting DnaWeb
+- Allow . in Live Variable/Template names
+- Allow includes between engine types without file extension
+- dna.config files now detects changes without having to restart
+
 ### Version 1.0.1.6
 
 - Add Live Data Sources support for Live Variables and Live Templates

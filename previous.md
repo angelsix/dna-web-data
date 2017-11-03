@@ -2,6 +2,10 @@
 
 <ul>
 
+<li><a href="Releases/DnaWeb-1.0.1.6-Release-x86.msi">DnaWeb 1.0.1.6 (32bit)</a></li>
+
+<li><a href="Releases/DnaWeb-1.0.1.6-Release-x64.msi">DnaWeb 1.0.1.6 (64bit)</a></li>
+
 <li><a href="Releases/DnaWeb-1.0.1.5-Release-x86.msi">DnaWeb 1.0.1.5 (32bit)</a></li>
 
 <li><a href="Releases/DnaWeb-1.0.1.5-Release-x64.msi">DnaWeb 1.0.1.5 (64bit)</a></li>

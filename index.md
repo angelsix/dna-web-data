@@ -433,6 +433,8 @@ An example dna.config file is below:
   "processAndClose": "False",
   "logLevel": "Minimal",
   "outputPath": "../WebRoot",
+  "scssOutputStyle": "Compressed",
+  "scssGenerateSourceMap": "False",
   "liveServers": [ "../WebRoot" ],
   "liveDataSources": [
   {
@@ -444,27 +446,31 @@ An example dna.config file is below:
 }
 ```
 
-| Property        | Description                              |
-| --------------- | ---------------------------------------- |
-| monitor         | A relative or absolute path to monitor, based on the folder where DnaWeb was called from |
-| generateOnStart | `None, All`. Specifies whether to generate all DnaWeb file types on startup without the need for them to be changed first |
-| processAndClose | `False, True`. Whether DnaWeb closes right after opening and optionally generating all files. Typically used in combination with **generateOnStart** being set to `All` |
-| logLevel        | `None, Minimal, Informative, All` The amount of detail to output in the log |
-| outputPath      | Sets the output path for all files, relative to this configuration files location |
-| liveServers     | An array of strings that specify paths (relative to the configuration file) that should have a Live Server spun up for them |
-| liveDataSources | An array of Live Data Sources            |
-| cachePath       | The relative or absolute path where any DnaWeb cache data goes (the default is the Local App Data folder of the machine) |
+| Property              | Description                              |
+| --------------------- | ---------------------------------------- |
+| monitor               | A relative or absolute path to monitor, based on the folder where DnaWeb was called from |
+| generateOnStart       | `None, All`. Specifies whether to generate all DnaWeb file types on startup without the need for them to be changed first |
+| processAndClose       | `False, True`. Whether DnaWeb closes right after opening and optionally generating all files. Typically used in combination with **generateOnStart** being set to `All` |
+| logLevel              | `None, Minimal, Informative, All` The amount of detail to output in the log |
+| outputPath            | Sets the output path for all files, relative to this configuration files location |
+| scssOutputStyle       | `Nested, Expanded, Compact, Compressed, Inspect` Sets the css output style |
+| scssGenerateSourceMap | `False, True` If a ***.css.map** file should be created for the css files |
+| liveServers           | An array of strings that specify paths (relative to the configuration file) that should have a Live Server spun up for them |
+| liveDataSources       | An array of Live Data Sources            |
+| cachePath             | The relative or absolute path where any DnaWeb cache data goes (the default is the Local App Data folder of the machine) |
 
 These values can also be overridden when calling DnaWeb from command line by passing in command line arguments:
 
-| Argument    | Description                              |
-| ----------- | ---------------------------------------- |
-| monitor=    | Overrides any monitor path specified in dna.config files |
-| logLevel=   | Overrides the log level                  |
-| outputPath= | Overrides the Output Path                |
-| /a          | Overrides any generate on start options specified in dna.config files and sets it to `All` |
-| /c          | Overrides any process and close options specified in dna.config files and sets it to `True` |
-| cachePath   | Overrides any cache path setting specified in dna.config files |
+| Argument               | Description                              |
+| ---------------------- | ---------------------------------------- |
+| monitor=               | Overrides any monitor path specified in dna.config files |
+| logLevel=              | Overrides the log level                  |
+| outputPath=            | Overrides the Output Path                |
+| scssOutputStyle=       | Overrides the Scss Output Style          |
+| scssGenerateSourceMap= | Overrides the Scss Generate Source Map   |
+| /a                     | Overrides any generate on start options specified in dna.config files and sets it to `All` |
+| /c                     | Overrides any process and close options specified in dna.config files and sets it to `True` |
+| cachePath              | Overrides any cache path setting specified in dna.config files |
 
 > You can also place a **dna.config** file in any sub-folder inside the monitor path to apply settings to that specific folder and it's children. Configuration files in child folders override any settings specified in a parent folders configuration file.
 

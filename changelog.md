@@ -4,6 +4,7 @@
 
 - Process and Close won't spin up Live Servers
 - Fix Live Server Auto-Refresh not always working
+- Scss Files can not specify Output Style and Generate Source Map
 
 ### Version 1.0.2
 

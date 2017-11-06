@@ -1,6 +1,12 @@
 ## Change Log
 
-### Version 1.0.2.0
+### Version 1.0.3
+
+- Process and Close won't spin up Live Servers
+- Fix Live Server Auto-Refresh not always working
+- Scss Files can not specify Output Style and Generate Source Map
+
+### Version 1.0.2
 
 - Live editing of dna.config file support without restarting DnaWeb
 - Allow . in Live Variable/Template names

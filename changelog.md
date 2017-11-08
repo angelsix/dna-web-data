@@ -1,5 +1,9 @@
 ## Change Log
 
+### Version 1.0.4
+
+- Fix include paths without file extension not working when filename has . in the name
+
 ### Version 1.0.3
 
 - Process and Close won't spin up Live Servers

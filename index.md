@@ -6,8 +6,8 @@ layout: default
 
 <h1 id="download">Download</h1>
 
-<a href="Releases/DnaWeb-1.0.3.0-Release-x86.msi">DnaWeb 1.0.3.0 (32bit)</a><br>
-<a href="Releases/DnaWeb-1.0.3.0-Release-x64.msi">DnaWeb 1.0.3.0 (64bit)</a><br>
+<a href="Releases/DnaWeb-1.0.4.0-Release-x86.msi">DnaWeb 1.0.4.0 (32bit)</a><br>
+<a href="Releases/DnaWeb-1.0.4.0-Release-x64.msi">DnaWeb 1.0.4.0 (64bit)</a><br>
 
 <br><a href="previous">Previous Versions</a><br>
 

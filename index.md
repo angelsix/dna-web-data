@@ -20,6 +20,8 @@ layout: default
 
 When first building your website you don’t typically work directly in ASP.Net, or PHP or other final server languages. You build your website in plain static HTML/CSS, then once done you convert them to headers, footers, cshtml files etc...
 
+> **Note:** All brand icons are trademarks of their respective owners. The use of these trademarks does not indicate endorsement of the trademark holder by me, nor vice versa.
+
 ## The issue with static HTML
 
 The issue with doing plain HTML is that is not your final format. Plain HTML cannot have shared headers and footers that are the same throughout pages. It cannot have variables, multiple outputs, multiple formats or anything else.

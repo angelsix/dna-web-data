@@ -3,6 +3,8 @@
 ### Version 1.0.4
 
 - Fix include paths without file extension not working when filename has . in the name
+- Fixed infinite refresh bug if URL has # in it
+- Added ability to use relative `source` paths in **dna.live.config** files located on websites
 
 ### Version 1.0.3
 

@@ -6,8 +6,8 @@ layout: default
 
 <h1 id="download">Download</h1>
 
-<a href="Releases/DnaWeb-1.0.3.0-Release-x86.msi">DnaWeb 1.0.3.0 (32bit)</a><br>
-<a href="Releases/DnaWeb-1.0.3.0-Release-x64.msi">DnaWeb 1.0.3.0 (64bit)</a><br>
+<a href="Releases/DnaWeb-1.0.4.0-Release-x86.msi">DnaWeb 1.0.4.0 (32bit)</a><br>
+<a href="Releases/DnaWeb-1.0.4.0-Release-x64.msi">DnaWeb 1.0.4.0 (64bit)</a><br>
 
 <br><a href="previous">Previous Versions</a><br>
 
@@ -19,6 +19,8 @@ layout: default
 # DNA Web Engine
 
 When first building your website you don’t typically work directly in ASP.Net, or PHP or other final server languages. You build your website in plain static HTML/CSS, then once done you convert them to headers, footers, cshtml files etc...
+
+> **Note:** All brand icons are trademarks of their respective owners. The use of these trademarks does not indicate endorsement of the trademark holder by me, nor vice versa.
 
 ## The issue with static HTML
 

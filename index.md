@@ -6,8 +6,8 @@ layout: default
 
 <h1 id="download">Download</h1>
 
-<a href="Releases/DnaWeb-1.0.4.0-Release-x86.msi">DnaWeb 1.0.4.0 (32bit)</a><br>
-<a href="Releases/DnaWeb-1.0.4.0-Release-x64.msi">DnaWeb 1.0.4.0 (64bit)</a><br>
+<a href="Releases/DnaWeb-1.0.5.0-Release-x86.msi">DnaWeb 1.0.5.0 (32bit)</a><br>
+<a href="Releases/DnaWeb-1.0.5.0-Release-x64.msi">DnaWeb 1.0.5.0 (64bit)</a><br>
 
 <br><a href="previous">Previous Versions</a><br>
 
@@ -437,6 +437,7 @@ An example dna.config file is below:
   "outputPath": "../WebRoot",
   "scssOutputStyle": "Compressed",
   "scssGenerateSourceMap": "False",
+  "openVsCode": "True",
   "liveServers": [ "../WebRoot" ],
   "liveDataSources": [
   {
@@ -457,6 +458,7 @@ An example dna.config file is below:
 | outputPath            | Sets the output path for all files, relative to this configuration files location |
 | scssOutputStyle       | `Nested, Expanded, Compact, Compressed, Inspect` Sets the css output style |
 | scssGenerateSourceMap | `False, True` If a ***.css.map** file should be created for the css files |
+| openVsCode            | `False, True` If true and VS Code is installed, it will be opened on startup with the current monitor folder as the source |
 | liveServers           | An array of strings that specify paths (relative to the configuration file) that should have a Live Server spun up for them |
 | liveDataSources       | An array of Live Data Sources            |
 | cachePath             | The relative or absolute path where any DnaWeb cache data goes (the default is the Local App Data folder of the machine) |
@@ -470,6 +472,7 @@ These values can also be overridden when calling DnaWeb from command line by pas
 | outputPath=            | Overrides the Output Path                |
 | scssOutputStyle=       | Overrides the Scss Output Style          |
 | scssGenerateSourceMap= | Overrides the Scss Generate Source Map   |
+| openVsCode=            | Overrides the Open VS Code               |
 | /a                     | Overrides any generate on start options specified in dna.config files and sets it to `All` |
 | /c                     | Overrides any process and close options specified in dna.config files and sets it to `True` |
 | cachePath              | Overrides any cache path setting specified in dna.config files |

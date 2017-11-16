@@ -1,0 +1,6 @@
+{
+  "Releases" : [
+    { "Version": "1.0.4.0", "Platform": "win-x64", "Path": "http://blog.angelsix.com/docs.dnaweb/Releases/DnaWeb-1.0.4.0-Release-x64.msi" },
+    { "Version": "1.0.4.0", "Platform": "win-x32", "Path": "http://blog.angelsix.com/docs.dnaweb/Releases/DnaWeb-1.0.4.0-Release-x32.msi" }
+  ]
+}

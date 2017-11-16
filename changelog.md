@@ -1,5 +1,12 @@
 ## Change Log
 
+### Version 1.0.5
+
+- Adding `Open VS Code` on launch option
+- Detects and informs user if update is available
+- Fixed Live Server bug for UTF content in HTML (invalid length)
+- Fixed Live Data support for Zips containing / instead of \ and for zips without explicit folder entities
+
 ### Version 1.0.4
 
 - Fix include paths without file extension not working when filename has . in the name

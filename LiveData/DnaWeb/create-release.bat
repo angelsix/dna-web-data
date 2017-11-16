@@ -1,0 +1,1 @@
+powershell -file Assets/package.ps1

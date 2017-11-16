@@ -1,1 +1,1 @@
-powershell -file Assets/package.ps1
+powershell -file create-release-zip.ps1

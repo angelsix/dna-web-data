@@ -1,5 +1,13 @@
 ## Change Log
 
+### Version 1.0.6
+
+- Added Static Folders to allow syncing of a Source folder to an output folder (ideal for WebRoot outputs)
+- Added Generation Reports
+- Added `generate` command so you can regenerate all files on demand
+- Support console close key combination to exit (for example `Ctrl+C` on Windows)
+- Fixed server crashing bug causing never-ending close loop
+
 ### Version 1.0.5
 
 - Adding `Open VS Code` on launch option

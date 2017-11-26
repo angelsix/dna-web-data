@@ -6,8 +6,8 @@ layout: default
 
 <h1 id="download">Download</h1>
 
-<a href="Releases/DnaWeb-1.0.5.0-Release-x86.msi">DnaWeb 1.0.5.0 (32bit)</a><br>
-<a href="Releases/DnaWeb-1.0.5.0-Release-x64.msi">DnaWeb 1.0.5.0 (64bit)</a><br>
+<a href="Releases/DnaWeb-1.0.6.0-Release-x86.msi">DnaWeb 1.0.6.0 (32bit)</a><br>
+<a href="Releases/DnaWeb-1.0.6.0-Release-x64.msi">DnaWeb 1.0.6.0 (64bit)</a><br>
 
 <br><a href="previous">Previous Versions</a><br>
 
@@ -376,6 +376,16 @@ For example the following being typed into the DnaWeb command interface will ins
 
 To make your own take a look at our example <a href="https://github.com/angelsix/dna-web/tree/master/Source/Dna.Web.Core/LiveData/Source" target="_blank">on GitHub</a>
 
+## Static Folders
+
+Sometimes you have static files that should be in your websites root, such as images, pre-compiled JavaScript libraries, font files and so on.
+
+Instead of having them in the output folder tpyically called `WebRoot` along with mostly compiled/generated files, making it an ugly mix folder between generated files and static files, you can create a **Static Folder** anywhere you like and configure it to output to a specific location in your web root.
+
+A good example is an Assets folder containing Fonts and images.
+
+Check out the [Examples folder](https://github.com/angelsix/dna-web/tree/develop/Examples) for more information, specifically the **Static Folders** example.
+
 ## Installing DnaWeb
 
 If you want to create your own Windows installer, download and install [Wix](http://wixtoolset.org/) and then right click on the **Dna.Web.Installer** project in Visual Studio to compile an msi file. The output of the compile will be in a folder inside **Dna.Web.Installer** called **Installs**
@@ -438,6 +448,7 @@ An example dna.config file is below:
   "scssOutputStyle": "Compressed",
   "scssGenerateSourceMap": "False",
   "openVsCode": "True",
+  "staticFolders": [ { "source": "Assets", "destination": "../WebRoot/Assets" } ]
   "liveServers": [ "../WebRoot" ],
   "liveDataSources": [
   {
@@ -459,6 +470,7 @@ An example dna.config file is below:
 | scssOutputStyle       | `Nested, Expanded, Compact, Compressed, Inspect` Sets the css output style |
 | scssGenerateSourceMap | `False, True` If a ***.css.map** file should be created for the css files |
 | openVsCode            | `False, True` If true and VS Code is installed, it will be opened on startup with the current monitor folder as the source |
+| staticFolders         | An array of static folder details (source/destination) used to configure a Static Folder |
 | liveServers           | An array of strings that specify paths (relative to the configuration file) that should have a Live Server spun up for them |
 | liveDataSources       | An array of Live Data Sources            |
 | cachePath             | The relative or absolute path where any DnaWeb cache data goes (the default is the Local App Data folder of the machine) |

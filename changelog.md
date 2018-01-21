@@ -1,5 +1,10 @@
 ## Change Log
 
+### Version 1.0.7
+
+- Updated application icon
+- Fixed VS Code opening on automated process and close jobs
+
 ### Version 1.0.6
 
 - Added Static Folders to allow syncing of a Source folder to an output folder (ideal for WebRoot outputs)

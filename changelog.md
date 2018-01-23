@@ -1,5 +1,9 @@
 ## Change Log
 
+### Version 1.0.7.1
+
+- Fixed circular reference issue
+
 ### Version 1.0.7
 
 - Updated application icon
